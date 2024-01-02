@@ -1,8 +1,8 @@
 function getComputerChoice() {
     let computerChoice;
     let n = Math.random()*3;
-    Math.floor(n);
-    switch (c) {
+    n = Math.floor(n);
+    switch (n) {
         case 0:
             computerChoice = "scissors";
             break;
@@ -36,7 +36,15 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game(){
-
+    let playerSelection, computerSelection;
+    console.log("Welcome to rock, paper, scissors game!");
+    for(let i = 1; i<=3; i++){
+        console.log(`Game number ${i}`);
+        playerSelection= prompt("Enter a value: ");
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection);
+    }
 }
 
-playRound("paper","paper");
+game();
