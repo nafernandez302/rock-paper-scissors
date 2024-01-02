@@ -20,18 +20,18 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    console.log(`Jugador elige: ${playerSelection}`);
-    console.log(`Computadora elige: ${computerSelection}`);
+    console.log(`Player's choice: ${playerSelection}`);
+    console.log(`Computer's choice: ${computerSelection}`);
     if(playerSelection == computerSelection){
         console.log("Tie");
     }
     else if((playerSelection == "rock" && computerSelection == "scissors") ||
             (playerSelection == "scissors" && computerSelection == "paper")  ||
             (playerSelection == "paper" && computerSelection == "rock")){
-        console.log("player wins");
+        console.log("Player wins!");
     }
     else{
-        console.log("computer wins");
+        console.log("Computer wins!");
     }
 }
 
@@ -39,7 +39,7 @@ function game(){
     let playerSelection, computerSelection;
     console.log("Welcome to rock, paper, scissors game!");
     for(let i = 1; i<=3; i++){
-        console.log(`Game number ${i}`);
+        console.log(`---- Game number ${i} ----`);
         playerSelection= prompt("Enter a value: ");
         playerSelection = playerSelection.toLowerCase();
         computerSelection = getComputerChoice();
