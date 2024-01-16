@@ -35,16 +35,28 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game(){
-    let playerSelection, computerSelection;
-    console.log("Welcome to rock, paper, scissors game!");
-    for(let i = 1; i<=3; i++){
-        console.log(`---- Game number ${i} ----`);
-        //playerSelection= prompt("Enter a value: ");
-        playerSelection = playerSelection.toLowerCase();
-        computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
-    }
+const message = document.createElement('p');
+const game = {
+    player: '',
+    computer: '',
+    playerScore: 0,
+    computerScore: 0,
 }
+const rockButton = document.querySelector('#play-buttons .rock');
+const paperButton = document.querySelector('#play-buttons .paper');
+const scissorsButton = document.querySelector('#play-buttons .scissors');
 
-game();
+rockButton.addEventListener("click", function(){
+    game.player = 'rock';
+    console.log("Jugador elige piedra")
+  });
+paperButton.addEventListener("click", function(){
+    game.player = 'paper';
+    console.log("Jugador elige papel")
+});
+scissorsButton.addEventListener("click", function(){
+    game.player = 'scissors';
+    console.log("Jugador elige tijera")
+});
+
+
