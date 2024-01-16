@@ -40,7 +40,7 @@ function game(){
     console.log("Welcome to rock, paper, scissors game!");
     for(let i = 1; i<=3; i++){
         console.log(`---- Game number ${i} ----`);
-        playerSelection= prompt("Enter a value: ");
+        //playerSelection= prompt("Enter a value: ");
         playerSelection = playerSelection.toLowerCase();
         computerSelection = getComputerChoice();
         playRound(playerSelection, computerSelection);
