@@ -20,19 +20,38 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    game.matchNumber++;
+    console.log(`Match number ${game.matchNumber}`);
     console.log(`Player's choice: ${playerSelection}`);
     console.log(`Computer's choice: ${computerSelection}`);
     if(playerSelection == computerSelection){
-        console.log("Tie");
     }
     else if((playerSelection == "rock" && computerSelection == "scissors") ||
             (playerSelection == "scissors" && computerSelection == "paper")  ||
             (playerSelection == "paper" && computerSelection == "rock")){
-        console.log("Player wins!");
+        game.playerScore++;
     }
     else{
-        console.log("Computer wins!");
+        game.computerScore++;
     }
+    console.log(`Player: ${game.playerScore}`,
+                `Computer: ${game.computerScore}`);
+    if (game.matchNumber == 5){
+        if(game.playerScore > game.computerScore){
+            console.log("Player wins!");
+        }
+        else if(game.computerScore > game.playerScore){
+            console.log("Computer wins!")
+        }
+        else{
+            console.log("Tie!");
+        }
+        game.matchNumber = 0;
+        game.playerScore = 0;
+        game.computerScore = 0;
+    }
+    console.log(" ");
+    
 }
 
 const message = document.createElement('p');
@@ -41,6 +60,7 @@ const game = {
     computer: '',
     playerScore: 0,
     computerScore: 0,
+    matchNumber: 0,
 }
 const rockButton = document.querySelector('#play-buttons .rock');
 const paperButton = document.querySelector('#play-buttons .paper');
@@ -48,15 +68,13 @@ const scissorsButton = document.querySelector('#play-buttons .scissors');
 
 rockButton.addEventListener("click", function(){
     game.player = 'rock';
-    console.log("Jugador elige piedra")
+    playRound('rock', getComputerChoice());
   });
 paperButton.addEventListener("click", function(){
-    game.player = 'paper';
-    console.log("Jugador elige papel")
+    playRound('paper', getComputerChoice());
 });
 scissorsButton.addEventListener("click", function(){
-    game.player = 'scissors';
-    console.log("Jugador elige tijera")
+    playRound('scissors', getComputerChoice());
 });
 
 
