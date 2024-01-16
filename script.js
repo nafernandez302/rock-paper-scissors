@@ -20,7 +20,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    game.matchNumber++;
+    incrementMatchNumber();
     console.log(`Match number ${game.matchNumber}`);
     console.log(`Player's choice: ${playerSelection}`);
     console.log(`Computer's choice: ${computerSelection}`);
@@ -29,10 +29,10 @@ function playRound(playerSelection, computerSelection) {
     else if((playerSelection == "rock" && computerSelection == "scissors") ||
             (playerSelection == "scissors" && computerSelection == "paper")  ||
             (playerSelection == "paper" && computerSelection == "rock")){
-        game.playerScore++;
+        incrementPlayerScore();
     }
     else{
-        game.computerScore++;
+        incrementComputerScore();
     }
     console.log(`Player: ${game.playerScore}`,
                 `Computer: ${game.computerScore}`);
@@ -46,12 +46,35 @@ function playRound(playerSelection, computerSelection) {
         else{
             console.log("Tie!");
         }
-        game.matchNumber = 0;
-        game.playerScore = 0;
-        game.computerScore = 0;
+        resetGame();
     }
     console.log(" ");
     
+}
+
+function setPlayerChoice(choice){
+    game.player = choice;
+}
+
+function setComputerChoice(choice){
+    game.computer = choice;
+}
+
+function incrementPlayerScore(){
+    game.playerScore++;
+}
+
+function incrementComputerScore(){
+    game.computerScore++;
+}
+
+function incrementMatchNumber(){
+    game.matchNumber++;
+}
+function resetGame(){
+    game.playerScore = 0;
+    game.computerScore = 0;
+    game.matchNumber = 0;
 }
 
 const message = document.createElement('p');
