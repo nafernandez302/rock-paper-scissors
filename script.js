@@ -77,27 +77,27 @@ function resetGame(){
     game.matchNumber = 0;
 }
 
-const message = document.createElement('p');
+const message = document.createElement("p");
 const game = {
-    player: '',
-    computer: '',
+    player: "",
+    computer: "",
     playerScore: 0,
     computerScore: 0,
     matchNumber: 0,
 }
-const rockButton = document.querySelector('#play-buttons .rock');
-const paperButton = document.querySelector('#play-buttons .paper');
-const scissorsButton = document.querySelector('#play-buttons .scissors');
+const rockButton = document.querySelector("#play-buttons .rock");
+const paperButton = document.querySelector("#play-buttons .paper");
+const scissorsButton = document.querySelector("#play-buttons .scissors");
 
 rockButton.addEventListener("click", function(){
-    game.player = 'rock';
-    playRound('rock', getComputerChoice());
+    game.player = "rock";
+    playRound("rock", getComputerChoice());
   });
 paperButton.addEventListener("click", function(){
-    playRound('paper', getComputerChoice());
+    playRound("paper", getComputerChoice());
 });
 scissorsButton.addEventListener("click", function(){
-    playRound('scissors', getComputerChoice());
+    playRound("scissors", getComputerChoice());
 });
 
 
