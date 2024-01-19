@@ -86,12 +86,14 @@ function gameToMessage(game){
     const playerElection = document.createElement("p");
     const computerElection = document.createElement("p");
     const matchScore = document.createElement("p");
+    const winnerMessage = document.createElement("div");
 
     messageContainer.classList.add("game-message");
     matchPrint.classList.add("match-print");
     playerElection.classList.add("election");
     computerElection.classList.add("election");
     matchScore.classList.add("score");
+    winnerMessage.classList.add("winner-message");
 
 
 
@@ -101,13 +103,26 @@ function gameToMessage(game){
     matchScore.textContent = `Player ${game.playerScore} - ` +
                              `Computer ${game.computerScore}`;
 
+    
     messageContainer.appendChild(matchPrint);
     messageContainer.appendChild(playerElection);
     messageContainer.appendChild(computerElection);
     messageContainer.appendChild(matchScore);
 
-    return messageContainer;
+    if(game.matchNumber == 5){
+        if(game.playerScore > game.computerScore){
+            winnerMessage.textContent = "Player Wins";
+        }
+        else if(game.playerScore < game.computerScore){
+            winnerMessage.textContent = "Computer Wins";
+        }
+        else{
+            winnerMessage.textContent = "Tie";
+        }
+        messageContainer.appendChild(winnerMessage);
+    }
 
+    return messageContainer;
 
 }
 
