@@ -1,4 +1,4 @@
-*{
+body{
     font-family: Arial;
     background-color: blanchedalmond
 }
@@ -32,3 +32,14 @@
     background-color: whitesmoke;
 }
 
+.game-message{
+    background-color: gray;
+}
+
+.game-message p{
+    border: 2px solid black;
+    padding: 16px 0px;
+    margin: 0;
+    font-weight: bold;
+    padding-left: 10px;
+}
