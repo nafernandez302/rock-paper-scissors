@@ -23,8 +23,7 @@ function playRound(playerSelection, computerSelection) {
     setPlayerChoice(playerSelection);
     setComputerChoice(computerSelection);
     incrementMatchNumber();
-    const output = document.querySelector("#output-event");
-    output.appendChild(gameToMessage(game));
+    updateUI();
     console.log(`Match number ${game.matchNumber}`);
     console.log(`Player's choice: ${playerSelection}`);
     console.log(`Computer's choice: ${computerSelection}`);
@@ -86,18 +85,38 @@ function gameToMessage(game){
     const matchPrint = document.createElement("p");
     const playerElection = document.createElement("p");
     const computerElection = document.createElement("p");
+    const matchScore = document.createElement("p");
+
+    messageContainer.classList.add("game-message");
+    matchPrint.classList.add("match-print");
+    playerElection.classList.add("election");
+    computerElection.classList.add("election");
+    matchScore.classList.add("score");
+
+
 
     matchPrint.textContent = `Match number ${game.matchNumber}`;
     playerElection.textContent = `Player chooses ${game.player}`;
     computerElection.textContent = `Computer chooses ${game.computer}`;
+    matchScore.textContent = `Player ${game.playerScore} - ` +
+                             `Computer ${game.computerScore}`;
 
     messageContainer.appendChild(matchPrint);
     messageContainer.appendChild(playerElection);
     messageContainer.appendChild(computerElection);
+    messageContainer.appendChild(matchScore);
 
     return messageContainer;
 
 
+}
+
+function updateUI() {
+    const output = document.querySelector("#output-event");
+    output.innerHTML = ""; // Limpiar el contenido anterior
+
+    const messageContainer = gameToMessage(game);
+    output.appendChild(messageContainer);
 }
 
 const message = document.createElement("p");
